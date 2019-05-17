@@ -35,7 +35,12 @@ import (
 var (
 	queueResources = corev1.ResourceRequirements{
 		Requests: corev1.ResourceList{
-			corev1.ResourceName("cpu"): queueContainerCPU,
+			corev1.ResourceCPU:    queueContainerCPURequest,
+			corev1.ResourceMemory: queueContainerMemoryRequest,
+		},
+		Limits: corev1.ResourceList{
+			corev1.ResourceCPU:    queueContainerCPULimit,
+			corev1.ResourceMemory: queueContainerMemoryLimit,
 		},
 	}
 	queuePorts = []corev1.ContainerPort{{

@@ -57,6 +57,15 @@ var ProgressDeadlineSeconds int32 = 120
 var (
 	// See https://github.com/knative/serving/pull/1124#issuecomment-397120430
 	// for how CPU and memory values were calculated.
-	fluentdContainerCPU = resource.MustParse("25m")
-	queueContainerCPU   = resource.MustParse("25m")
+	fluentdContainerCPURequest = resource.MustParse("25m")
+	queueContainerCPURequest   = resource.MustParse("25m")
+
+	fluentdContainerCPULimit = resource.MustParse("100m")
+	queueContainerCPULimit   = resource.MustParse("100m")
+
+	fluentdContainerMemoryRequest = resource.MustParse("25M")
+	queueContainerMemoryRequest   = resource.MustParse("25M")
+
+	fluentdContainerMemoryLimit = resource.MustParse("100M")
+	queueContainerMemoryLimit   = resource.MustParse("100M")
 )

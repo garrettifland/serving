@@ -70,7 +70,12 @@ const fluentdConfigMapVolumeName = "configmap"
 var (
 	fluentdResources = corev1.ResourceRequirements{
 		Requests: corev1.ResourceList{
-			corev1.ResourceCPU: fluentdContainerCPU,
+			corev1.ResourceCPU:    fluentdContainerCPURequest,
+			corev1.ResourceMemory: fluentdContainerMemoryRequest,
+		},
+		Limits: corev1.ResourceList{
+			corev1.ResourceCPU:    fluentdContainerCPULimit,
+			corev1.ResourceMemory: fluentdContainerMemoryLimit,
 		},
 	}
 
